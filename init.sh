@@ -3,4 +3,5 @@ sudo rm -rf /etc/nginx/sites-enabled/default
 sudo /etc/init.d/nginx restart
 sudo rm /etc/gunicorn/test
 sudo ln -sf /home/box/web/etc/gunicorn-django.conf /etc/gunicorn.d/test
-sudo /etc/init.d/gunicorn restart
+#sudo /etc/init.d/gunicorn restart
+gunicorn -c /etc/gunicorn.d/test ask.wsgi:application
