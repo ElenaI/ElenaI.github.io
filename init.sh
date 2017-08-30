@@ -8,4 +8,4 @@ sudo ln -sf /home/box/web/etc/gunicorn-django.conf /etc/gunicorn.d/test_django
 cd /home/box/web/ask/
 sudo gunicorn -b 0.0.0.0:8000 ask.wsgi:application &
 cd /home/box/web
-sudo gunicorn -b 0.0.0.0:8080 hello:web &
+sudo gunicorn -b 0.0.0.0:8080 hello:app &
