@@ -1,10 +1,8 @@
 from django.conf.urls import url
-from django.contrib import admin
+#from django.contrib import admin
 from qa.views import test
 
-admin.autodiscover()
-
-
+#admin.autodiscover()
 urlpatterns = [
     url(r'^$',test),
     url(r'^login/.*$',test,name = 'login'),
