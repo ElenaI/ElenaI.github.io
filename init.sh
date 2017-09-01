@@ -9,3 +9,4 @@ cd /home/box/web/ask/
 sudo gunicorn -b 0.0.0.0:8000 ask.wsgi:application &
 cd /home/box/web
 sudo gunicorn -b 0.0.0.0:8080 hello:app &
+sudo /etc/init.d/mysql start
