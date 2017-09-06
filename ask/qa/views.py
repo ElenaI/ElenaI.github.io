@@ -22,7 +22,7 @@ def new_questions(request):
     except EmptyPage:
         questions = paginator.page(paginator.num_pages)
     return render_to_response(
-        'qa/questions_list.html', {'questions': questions})
+        'questions_list.html', {'questions': questions})
 
 
 def popular_questions(request):
@@ -36,13 +36,13 @@ def popular_questions(request):
     except EmptyPage:
         questions = paginator.page(paginator.num_pages)
     return render_to_response(
-        'qa/questions_list.html', {'questions': questions})
+        'questions_list.html', {'questions': questions})
 
 
 def question_detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     form = AnswerForm(initial={'question': question_id})
-    return render(request, 'qa/question_detail.html',
+    return render(request, 'question_detail.html',
                   {'question': question, 'form': form})
 
 
@@ -54,7 +54,7 @@ def ask(request):
             return redirect('question_detail', question_id=question.id)
     else:
         form = AskForm(user=request.user)
-    return render(request, 'qa/ask.html', {'form': form})
+    return render(request, 'ask.html', {'form': form})
 
 
 def answer(request):
@@ -79,4 +79,4 @@ def signup(request):
             return redirect('index')
     else:
         form = MyUserCreationForm()
-    return render(request, 'qa/signup.html', {'form': form})
+    return render(request, 'signup.html', {'form': form})
