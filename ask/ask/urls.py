@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import  url
 
 from django.contrib import admin
 from django.contrib.auth.views import login
@@ -8,13 +8,8 @@ from qa.views import (
     signup)
 
 
-urlpatterns = patterns(
-    '',
-    # Examples:
-    url(r'^$', test, name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
-    #url(r'^admin/', include(admin.site.urls)),
+urlpatterns = [
+    url(r'^$',test),
     url(r'^new/$', test, name='new'),
     url(r'^popular/$', popular_questions, name='popular'),
     url(r'^ask/', ask, name='ask'),
@@ -24,4 +19,4 @@ urlpatterns = patterns(
     url(r'^signup/$', signup, name='signup'),
     url(r'^login/$', login, {'template_name': 'login.html'}, name='login'),
     url(r'^$', new_questions, name='index'),
-)
+]
