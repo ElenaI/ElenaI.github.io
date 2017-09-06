@@ -22,6 +22,8 @@ class Question(models.Model):
     likes = models.ManyToManyField(User,related_name = 'likes_set')
     class Meta:
         db_table = 'question'
+    def __unicode__(self):
+        return self.title
 
 
 class Answer(models.Model):
@@ -31,3 +33,5 @@ class Answer(models.Model):
     author = models.ForeignKey(User,related_name = 'ans_set')
     class Meta:
         db_table = 'answer'
+    def __unicode__(self):
+        return self.text

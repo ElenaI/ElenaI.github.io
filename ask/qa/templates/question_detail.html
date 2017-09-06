@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {{ question.title }}<br>
+    {{ question.text }}<br>
+    Answers:<br>
+    {% for answer in question.answer_set.all %}
+        {{ answer.text }}<br>
+    {% endfor %}
+
+    Add answer:<br>
+    <form action="{% url 'answer' %}" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+    </form>
+
+{% endblock content%}
